@@ -38,11 +38,11 @@ public class Task1 {
         /**
          * Size of array will process
          */
-        int n = 20;
+        final int N = 20;
         /**
          * Array will process
          */
-        int[] M = new int[n];
+        int[] M = new int[N];
 
         /*
          * Filling array M random values

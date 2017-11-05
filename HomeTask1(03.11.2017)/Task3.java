@@ -20,11 +20,11 @@ public class Task3 {
         /**
          * Size of array will process
          */
-        int n = 7;
+        final int N = 7;
         /**
          * Array will process
          */
-        int[][] M = new int[n][n];
+        int[][] M = new int[N][N];
         /*
          * Filling array M random values
          */
@@ -39,7 +39,7 @@ public class Task3 {
         /**
          * Array will contain average value for each column
          */
-        int[] averageM = new int[n];
+        int[] averageM = new int[N];
         /**
          * Finding the average value for each column
          */
@@ -47,7 +47,7 @@ public class Task3 {
             for (int j = 0; j < M[i].length; j++) {
                 averageM[i] += M[j][i];
             }
-            averageM[i] /= n;
+            averageM[i] /= N;
         }
         System.out.println("Averages:");
         Task1.printM(averageM);
@@ -59,16 +59,16 @@ public class Task3 {
             for (int j = 0; j < M[i].length - i - 1; j++) {
                 if(averageM[j] < averageM[j+1]) {
                     int temp = averageM[j];
-                    int[] tempM = new int[n];
-                    for (int k = 0; k < n; k++) {
+                    int[] tempM = new int[N];
+                    for (int k = 0; k < N; k++) {
                         tempM[k] = M[k][j];
                     }
                     averageM[j] = averageM[j + 1];
-                    for (int k = 0; k < n; k++) {
+                    for (int k = 0; k < N; k++) {
                         M[k][j] = M[k][j + 1];
                     }
                     averageM[j + 1] = temp;
-                    for (int k = 0; k < n; k++) {
+                    for (int k = 0; k < N; k++) {
                         M[k][j + 1] = tempM[k];
                     }
                 }

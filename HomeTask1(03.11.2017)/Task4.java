@@ -11,11 +11,11 @@ public class Task4 {
         /**
          * Size of array will process
          */
-        int n = 10;
+        final int N = 10;
         /**
          * Array will process
          */
-        int[][] M = new int[n][n];
+        int[][] M = new int[N][N];
         /*
          * Filling array M random values
          */
@@ -31,7 +31,7 @@ public class Task4 {
         /**
          * The array will contain the lengths of the longest series of identical digits for each row
          */
-        int[] lenM = new int[n];
+        int[] lenM = new int[N];
         /**
          * Counting the lengths of the longest series of identical digits for each row
          */
