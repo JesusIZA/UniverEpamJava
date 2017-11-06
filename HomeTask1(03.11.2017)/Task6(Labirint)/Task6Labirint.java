@@ -73,22 +73,22 @@ public class Task6Labirint {
                 System.out.println("Steps: " + steps);
                 break;
             }
-            if(map[me.Y()][me.X() + 1].equals("[ ]")) {
-                if(new Coordinates2D(me.Y(), me.X() + 1).equals(way.getP())) {
+            if(map[me.Y() + 1][me.X()].equals("[ ]")) {
+                if(new Coordinates2D(me.Y() + 1, me.X()).equals(way.getP())) {
                     flag += 1;
                 } else {
-                    oneStep(map, me, me = new Coordinates2D(me.Y(), me.X() + 1));
+                    oneStep(map, me, me = new Coordinates2D(me.Y() + 1, me.X()));
                     way.add(me);
                     way.print();
                     flag = 0;
                     continue;
                 }
             }
-            if(map[me.Y() + 1][me.X()].equals("[ ]")) {
-                if(new Coordinates2D(me.Y() + 1, me.X()).equals(way.getP())) {
+            if(map[me.Y()][me.X() + 1].equals("[ ]")) {
+                if(new Coordinates2D(me.Y(), me.X() + 1).equals(way.getP())) {
                     flag += 1;
                 } else {
-                    oneStep(map, me, me = new Coordinates2D(me.Y() + 1, me.X()));
+                    oneStep(map, me, me = new Coordinates2D(me.Y(), me.X() + 1));
                     way.add(me);
                     way.print();
                     flag = 0;
