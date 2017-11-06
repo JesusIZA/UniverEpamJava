@@ -1,4 +1,4 @@
-package epam.hw1.tasc6labirint;
+package epam.hw1.task6labirint;
 
 /**
  * Составить программу, отыскивающую проход по лабиринту.

@@ -1,4 +1,4 @@
-package epam.hw1.tasc6labirint;
+package epam.hw1.task6labirint;
 
 import java.util.LinkedList;
 import java.util.List;
