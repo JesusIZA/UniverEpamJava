@@ -13,7 +13,7 @@ package epam.hw1.task6labirint;
  *
  * @author Jesus Raichuk
  */
-public class Task6IncreasedComplexity {
+public class Task6Labirint {
     public static String[][] generateMap(){
         final int N = 10;
         final int M = 15;
