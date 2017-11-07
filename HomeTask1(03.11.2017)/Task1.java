@@ -11,8 +11,8 @@ public class Task1 {
      * @param M - array will be printed (must be int type)
      */
     public static void printM(int[] M){
-        for (int i : M) {
-            System.out.print(i + " ");
+        for (int i = 0; i < M.length ; i++) {
+            System.out.print(M[i] + " ");
         }
         System.out.println();
     }
