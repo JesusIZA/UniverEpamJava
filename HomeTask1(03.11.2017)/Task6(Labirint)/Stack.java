@@ -30,8 +30,4 @@ public class Stack {
         System.out.println();
     }
 
-    public Coordinates2D getP(){
-        return (Coordinates2D)stack.get(stack.size() - 2);
-    }
-
 }

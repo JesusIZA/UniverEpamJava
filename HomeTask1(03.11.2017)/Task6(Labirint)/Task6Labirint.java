@@ -55,6 +55,15 @@ public class Task6Labirint {
         steps++;
     }
 
+    public static Coordinates2D getPreviewFromStack(Stack stack){
+        Coordinates2D temp = stack.get();
+        stack.del();
+        Coordinates2D res = stack.get();
+        stack.add(temp);
+        return res;
+    }
+
+
     public static void main(String[] args) {
         String[][] map = generateMap();
         Stack way = new Stack();
@@ -74,7 +83,7 @@ public class Task6Labirint {
                 break;
             }
             if(map[me.Y() + 1][me.X()].equals("[ ]")) {
-                if(new Coordinates2D(me.Y() + 1, me.X()).equals(way.getP())) {
+                if(new Coordinates2D(me.Y() + 1, me.X()).equals(getPreviewFromStack(way))) {
                     flag += 1;
                 } else {
                     oneStep(map, me, me = new Coordinates2D(me.Y() + 1, me.X()));
@@ -85,7 +94,7 @@ public class Task6Labirint {
                 }
             }
             if(map[me.Y()][me.X() + 1].equals("[ ]")) {
-                if(new Coordinates2D(me.Y(), me.X() + 1).equals(way.getP())) {
+                if(new Coordinates2D(me.Y(), me.X() + 1).equals(getPreviewFromStack(way))) {
                     flag += 1;
                 } else {
                     oneStep(map, me, me = new Coordinates2D(me.Y(), me.X() + 1));
@@ -96,7 +105,7 @@ public class Task6Labirint {
                 }
             }
             if(map[me.Y()][me.X() - 1].equals("[ ]")) {
-                if(new Coordinates2D(me.Y(), me.X() - 1).equals(way.getP())) {
+                if(new Coordinates2D(me.Y(), me.X() - 1).equals(getPreviewFromStack(way))) {
                     flag += 1;
                 } else {
                     oneStep(map, me, me = new Coordinates2D(me.Y(), me.X() - 1));
@@ -107,7 +116,7 @@ public class Task6Labirint {
                 }
             }
             if(map[me.Y() - 1][me.X()].equals("[ ]")) {
-                if(new Coordinates2D(me.Y() - 1, me.X()).equals(way.getP())) {
+                if(new Coordinates2D(me.Y() - 1, me.X()).equals(getPreviewFromStack(way))) {
                     flag += 1;
                 } else {
                     oneStep(map, me, me = new Coordinates2D(me.Y() - 1, me.X()));
