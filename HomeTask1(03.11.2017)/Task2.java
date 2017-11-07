@@ -6,34 +6,7 @@ package epam.hw1;
  * @author Jesus Raichuk
  */
 public class Task2 {
-    /**
-     * Putting positive value into begin of the array and negative into end one
-     * @param M - array will be processed (must be int type)
-     * @return newM - array of int (processed)
-     */
-    public static int[] positiveThenNegative(int[] M){
-        /**
-         * Array will contain processing values of array M (input)
-         * One will be returned
-         */
-        int[] newM = new int[M.length];
 
-        int i = 0, neg = newM.length -1, pos = 0;
-        /*
-         * O(n)
-         */
-        while (i < M.length) {
-            if(M[i] < 0) {
-                newM[neg] = M[i];
-                neg--;
-            } else {
-                newM[pos] = M[i];
-                pos++;
-            }
-            i++;
-        }
-        return newM;
-    }
     public static void main(String[] args) {
         /**
          * Size of array will process
@@ -53,7 +26,28 @@ public class Task2 {
 
         Task1.printM(M);
 
-        M = positiveThenNegative(M);
+        /**
+         * 'i' and 'j' - counter will move to each other
+         */
+        int i = 0, j = M.length - 1;
+        /**
+         *Sorting array M
+         */
+        while(i < j){
+            if(M[i] < 0){
+                if(M[j] >= 0){
+                    int temp = M[j];
+                    M[j] = M[i];
+                    M[i] = temp;
+                    i++;
+                    j--;
+                } else {
+                    j--;
+                }
+            } else {
+                i++;
+            }
+        }
 
         Task1.printM(M);
     }
