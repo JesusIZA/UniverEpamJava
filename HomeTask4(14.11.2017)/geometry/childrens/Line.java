@@ -1,6 +1,7 @@
 package homeWorks.hw4.geometry.childrens;
 
 import homeWorks.hw4.geometry.Geometry;
+
 /**
  * Class that realized Geometric Line
  *
@@ -26,6 +27,15 @@ public class Line extends Geometry{
         super("Line");
         this.beg = new Point(x1,y1);
         this.end = new Point(x2,y2);
+    }
+
+    /**
+     * Get length of line
+     * @return length of line
+     */
+    public int getLength(){
+        return (int)Math.sqrt((end.getX() - beg.getX()) * (end.getX() - beg.getX()) +
+                (end.getY() - beg.getY()) * (end.getY() - beg.getY()));
     }
 
     public Point getBeg() {
