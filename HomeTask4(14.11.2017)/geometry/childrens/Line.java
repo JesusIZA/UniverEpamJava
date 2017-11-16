@@ -19,14 +19,18 @@ public class Line extends Geometry{
 
     public Line(Point beg, Point end) {
         super("Line");
-        this.beg = beg;
-        this.end = end;
+        if(isValid(beg, end)) {
+            this.beg = beg;
+            this.end = end;
+        }
     }
 
     public Line(int x1, int y1, int x2, int y2) {
         super("Line");
-        this.beg = new Point(x1,y1);
-        this.end = new Point(x2,y2);
+        if(isValid(beg, end)) {
+            this.beg = new Point(x1, y1);
+            this.end = new Point(x2, y2);
+        }
     }
 
     /**
@@ -44,6 +48,7 @@ public class Line extends Geometry{
     }
 
     public void setBeg(Point beg) {
+        if(isValid(beg, end))
         this.beg = beg;
     }
 
@@ -52,7 +57,18 @@ public class Line extends Geometry{
     }
 
     public void setEnd(Point end) {
+        if(isValid(beg, end))
         this.end = end;
+    }
+    /**
+     * Checking the entered points for validity by line
+     * @param p1 - begin point
+     * @param p2 - end point
+     * @return boolean value - can this points be begin and end of a line or not
+     */
+    public static boolean isValid(Point p1, Point p2){
+        if(p1.equals(p2)) return false;
+        else return true;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package homeWorks.hw4.geometry.childrens;
 
 import homeWorks.hw4.geometry.Geometry;
+
 /**
  * Class that realized Geometric Point
  *
