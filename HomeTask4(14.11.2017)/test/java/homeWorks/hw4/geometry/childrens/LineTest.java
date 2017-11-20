@@ -31,7 +31,9 @@ public class LineTest {
     }
     @Test
     public void getLength() throws Exception {
-        assertEquals(l1.getLength(), 3);
+        int exp = 3;
+        int act = l1.getLength();
+        assertEquals(exp, act);
     }
     @Test
     public void isValid() throws Exception {
@@ -41,11 +43,15 @@ public class LineTest {
     @Test
     public void setBeg() throws Exception {
         l1.setBeg(p2);
-        assertEquals(l1.getBeg(), p1);
+        Point exp = p1;
+        Point act = l1.getBeg();
+        assertEquals(exp, act);
     }
     @Test
     public void setEnd() throws Exception {
         l1.setEnd(p1);
-        assertEquals(l1.getEnd(), p2);
+        Point exp = p2;
+        Point act = l1.getEnd();
+        assertEquals(exp, act);
     }
 }

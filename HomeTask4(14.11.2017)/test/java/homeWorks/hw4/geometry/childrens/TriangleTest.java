@@ -42,13 +42,18 @@ public class TriangleTest {
     }
 
     @Test
-    public void getPerimeter(){
-        assertEquals(tr.getPerimeter(), 12);
+    public void getPerimeter()
+    {
+        int exp = 12;
+        int act=tr.getPerimeter();
+        assertEquals(exp, act);
     }
 
     @Test
     public void getArea(){
-        assertEquals(tr.getArea(), 6);
+        int exp = 6;
+        int act=tr.getArea();
+        assertEquals(exp, act);
     }
 
 }
