@@ -1,7 +1,5 @@
 package moduleWork1.domain;
 
-import moduleWork1.entitys.TaxiStation;
-
 /**
  * 10.	Таксопарк.
  * Определить иерархию легковых автомобилей.
@@ -13,18 +11,10 @@ import moduleWork1.entitys.TaxiStation;
  * @author Jesus Raichuk
  */
 public class Main {
-    static TaxiStation taxiStation;
+
 
     public static void main(String[] args) {
-        taxiStation = new TaxiStation(20);
-        taxiStation.printCarPark();
-
-        System.out.println("\nPrice of car park = " + taxiStation.priceOfCarPark() + "$");
-
-        taxiStation.sortByFuelConsumption();
-        System.out.println("\nSorting by fuel consumption: ");
-        taxiStation.printCarPark();
-
-        System.out.println("\nCar by speed: " + taxiStation.findCarBySpeedRange(200, 300));
+        CommandListener commandListener = new CommandListener();
+        commandListener.start();
     }
 }
