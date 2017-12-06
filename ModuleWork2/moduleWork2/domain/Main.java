@@ -45,7 +45,7 @@ public class Main {
          */
         getFile(text, FILE_NAME);
         /**
-         * Put beffered text into class type Text
+         * Put buffered text into class type Text
          */
         Text t1 = new Text(text.toString());
         /**
