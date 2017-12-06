@@ -1,12 +1,14 @@
 package homeWorks.hw4.geometry;
 
+import java.io.Serializable;
+
 /**
  * Class Geometry
  * Class that realized geometry figure has name
  *
  * @author Jesus Raichuk
  */
-public class Geometry {
+public class Geometry implements Serializable{
     /**
      * Name of geometry figure
      */

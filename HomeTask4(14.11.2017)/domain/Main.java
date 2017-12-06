@@ -11,6 +11,10 @@ import homeWorks.hw4.geometry.childrens.grandchildrens.ColorPoint;
 import homeWorks.hw4.geometry.childrens.grandchildrens.ColorTriangle;
 import homeWorks.hw4.interfaces.ColorAble;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,8 +30,9 @@ public class Main {
     /**
      * Quantity of Geometric figures will created and processed
      */
-    static final int N = 40;
+    static final int N = 10;
     static List geometries = new LinkedList<Geometry>();
+    static final String S_FILE = "test.txt";
 
     public static void main(String[] args) {
         /**
@@ -132,16 +137,14 @@ public class Main {
         sortingList(colorAbles);
         printList(colorAbles);
 
-        Point  p1 = new Point(1,2);
-        Point p2 = new Point(1, 5);
-        Point p3 = new Point(5,5);
-        Point p4 = new Point(1,5);
-
-
-        Triangle tr = new Triangle(p1, p2, p3);
-
-        System.out.println(tr.getPerimeter());
-        System.out.println(tr.getArea());
+        System.out.println("*************************************************\nBefore Serialization:");
+        printList(geometries);
+        //Serialization
+        serializeList(geometries, S_FILE);
+        //Deserialization
+        List geometries2 = deserializeList(S_FILE);
+        System.out.println("After Serialization:");
+        printList(geometries2);
 
     }
     /**
@@ -177,6 +180,40 @@ public class Main {
                 }
             }
         }
+
+    }
+
+    /**
+     * Take list of Geometric figures and serialized them (put into file we need)
+     * @param lg - list of Geometric figures will serialized
+     * @param f_name - file will put the list
+     */
+    public static void serializeList(List<Geometry> lg , String f_name) {
+        try {
+            FileOutputStream fos = new FileOutputStream(f_name);
+            ObjectOutputStream os = new ObjectOutputStream(fos);
+            os.writeObject(lg); os.close();
+        } catch (Exception x) {
+            x.printStackTrace();
+        }
+    }
+    /**
+     * Get list of Geometric figures from file (deserialize list)
+     * And return deserialize list of Geometric figures
+     * @param f_name - file will reading
+     * @return List - list with Geometric figures were deserialize
+     */
+    public static List<Geometry> deserializeList(String f_name) {
+        List<Geometry> lg = null;
+        try {
+            FileInputStream fis = new FileInputStream(f_name);
+            ObjectInputStream is = new ObjectInputStream(fis);
+            lg = (List<Geometry>) is.readObject();
+            is.close();
+        } catch (Exception x) {
+            x.printStackTrace();
+        }
+        return lg;
     }
 
 }
