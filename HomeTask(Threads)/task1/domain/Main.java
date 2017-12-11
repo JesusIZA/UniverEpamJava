@@ -1,8 +1,10 @@
 package homeWorks.hw7.task1.domain;
 
-import homeWorks.hw7.task1.entitys.Bees;
+import homeWorks.hw7.task1.entitys.Bee;
+import homeWorks.hw7.task1.entitys.Wini;
+import utilsforall.lists.PrintLists;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,54 +21,107 @@ import java.util.List;
  * @author Jesus Raichuk
  */
 public class Main {
-    static final int SIZE = 30;
-    static final int STEP = 5;
+    /**
+     * Size of forest
+     */
+    static final int SIZE = 7;
+    /**
+     * Step Bee will look for Wini
+     */
+    static final int STEP = 3;
+    /**
+     * Forest
+     */
     static int[][] forest = new int[SIZE][SIZE];
-    public static void main(String[] args){
 
+    public static void main(String[] args) throws InterruptedException {
+        /**
+         * Fill the forest
+         */
         fillTheForest();
+        /**
+         * Convert forest to list
+         */
+        List<Integer> frst = forestIntoList();
 
-        List f1 = getForestSquare(0, SIZE * SIZE / 4);
-        List f2 = getForestSquare(SIZE * SIZE / 4, SIZE * SIZE / 4);
-        List f3 = getForestSquare(SIZE * SIZE / 4 * 2, SIZE * SIZE / 4);
-        List f4 = getForestSquare(SIZE * SIZE / 4 * 3, SIZE * SIZE / 4);
+        PrintLists.printListByOneRow(frst);
+        /**
+         * Create Wini
+         */
+        Wini wini = new Wini();
+        /**
+         * Create Bee 1 and set Wini
+         */
+        Bee b1 = new Bee(wini);
+        /**
+         * Create Bee 2 and set Wini
+         */
+        Bee b2 = new Bee(wini);
+        /**
+         * Create Bee 3 and set Wini
+         */
+        Bee b3 = new Bee(wini);
 
-        Bees bee1 = new Bees(f1, STEP);
-        Bees bee2 = new Bees(f2, STEP);
-        Bees bee3 = new Bees(f3, STEP);
-        Bees bee4 = new Bees(f4, STEP);
-
-        Thread bees1 = new Thread(bee1);
-        Thread bees2 = new Thread(bee2);
-        Thread bees3 = new Thread(bee3);
-        Thread bees4 = new Thread(bee4);
-
-        bees1.setName("One bee swarm");
-        bees2.setName("Two bee swarm");
-        bees3.setName("Three bee swarm");
-        bees4.setName("Four bee swarm");
-
-        bees1.start();
-        bees2.start();
-        bees3.start();
-        bees4.start();
-
-    }
-
-    private static void fillTheForest(){
-        int winiX = (int) (Math.random()*SIZE);
-        int winiY = (int) (Math.random()*SIZE);
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (i == winiX && j == winiY)
-                    forest[i][j] = 1;
-                else
-                    forest[i][j] = 0;
+        /**
+         * Looking for Wini
+         */
+        int i = 0;
+        while(!wini.isFound()){
+            Thread.sleep(100);
+            /**
+             * Next part of forest need to process
+             */
+            List<Integer> l = new ArrayList<Integer>();
+            /**
+             * Take the pert of forest
+             */
+            for (int j = i; j < frst.size() && j < i + STEP; j++) {
+                l.add(frst.get(j));
             }
+            /**
+             * Give task for free bee if we have the task
+             */
+            if(l.size() > 0) {
+                System.out.print("\nTask = ");
+                PrintLists.printListByOneRow(l);
+                /**
+                 * Took the task or not
+                 */
+                boolean took = false;
+                /**
+                 * Give task for free bee
+                 */
+                while (!took && !wini.isFound()) {
+                    if (b1.atAlveary) {
+                        b1.setSquare(l);
+                        took = true;
+                        new Thread(b1, "Bee1").start();
+                    } else if (b2.atAlveary) {
+                        b2.setSquare(l);
+                        took = true;
+                        new Thread(b2, "Bee2").start();
+                    } else if (b3.atAlveary) {
+                        b3.setSquare(l);
+                        took = true;
+                        new Thread(b3, "Bee3").start();
+                    }
+                    Thread.sleep(100);
+                }
+            }
+            else
+                break;
+            i += STEP;
+            Thread.sleep(500);
         }
+
     }
-    public static List forestIntoList(){
-        List temp = new LinkedList();
+
+    /**
+     * Convert int[][] to list of forest
+     * @return list - forest
+     */
+    private static List forestIntoList() {
+        List temp = new ArrayList<Integer>();
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 temp.add(forest[i][j]);
@@ -74,17 +129,24 @@ public class Main {
         }
         return temp;
     }
-    public static List getForestSquare(int start, int square){
-        List f = forestIntoList();
-        List temp = new LinkedList();
-        int i = start;
-        while(i < f.size() && i < start + square){
-            temp.add(f.get(i));
-            i++;
-        }
-        return temp;
-    }
 
+    /**
+     * Fill the forest
+     * And add wini in random position
+     */
+    public static void fillTheForest() {
+        int x = (int)(Math.random() * SIZE);
+        int y = (int)(Math.random() * SIZE);
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (i == x && j == y){
+                    forest[i][j] = 1;
+                } else {
+                    forest[i][j] = 0;
+                }
+            }
+        }
+    }
 
 }
 

@@ -19,11 +19,25 @@ import homeWorks.hw7.task2.statuses.Take;
  */
 public class Main {
     public static void main(String[] args) {
+        /**
+         * Take process
+         */
         Take t = new Take();
+        /**
+         * Count process
+         */
         Has h = new Has();
-
+        /**
+         * Create new Person will take boxes from warehouse
+         */
         new TakerFromStorage(t);
+        /**
+         * Create new Person will take boxes from ground ad put it to the car
+         */
         new TakerFromAGround(t, h);
+        /**
+         * Create new Person will count sum of these boxes
+         */
         new Counter(h);
     }
 }

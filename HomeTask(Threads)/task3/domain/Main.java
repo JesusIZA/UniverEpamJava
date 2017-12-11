@@ -1,10 +1,13 @@
 package homeWorks.hw7.task3.domain;
 
+import homeWorks.hw7.task3.entitys.Arena;
 import homeWorks.hw7.task3.entitys.Fight;
 import homeWorks.hw7.task3.entitys.Monk;
 import utilsforall.lists.PrintLists;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,34 +25,45 @@ import java.util.List;
  * @author Jesus Raichuk
  */
 public class Main {
+    /**
+     * List of all monks will fight
+     */
     static List<Monk> monks = new ArrayList<Monk>();
-    public static void main(String[] args) {
 
+    public static void main(String[] args) throws InterruptedException {
+        /**
+         * Fill the list of monks random monks
+         */
         monks = getListOfMonks(100);
-
-        Fight fight = new Fight(monks);
-
-        int round = 1;
-
-        while(fight.isFight){
-
-            if(fight.monks.size() == 1) {
-                System.out.println("\nGiving the prize ");
-                new Thread(fight, "Rewarding").start();
+        /**
+         * Create arena where monks will fight
+         */
+        Arena arena = new Arena(monks);
+        /**
+         * Start fighting
+         */
+        int round = 0;
+        while(!arena.isWinner){
+            PrintLists.printListByOneRow(arena.monks);
+            if(arena.monks.size() <= 1) {
+                arena.isWinner = true;
             } else {
-                System.out.println("\nRound " + round++ + " start");
-                for (int i = 0; i < fight.monks.size() / 2; i++) {
-                    new Thread(fight, "Fight" + (i + 1)).start();
+                System.out.println("\n\nRound " + round++ + " start");
+                for (int i = 0; i < arena.monks.size(); i+=2) {
+                    Thread t = new Thread(new Fight(arena, arena.getOneTeamForFight(i)), "Fight" + i/2);
+                    t.start();
+                    t.join();
                 }
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                arena.monks = new LinkedList(arena.winners);
+                arena.winners = new LinkedList<Monk>();
             }
         }
-    }
+        System.out.println("\nWINNER is " + arena.monks.get(0));
 
+    }
+    /**
+     * Fill the list of monks random monks
+     */
     private static List<Monk> getListOfMonks(int size){
         List<Monk> monks = new ArrayList<Monk>();
         for (int i = 0; i < size; i++) {
