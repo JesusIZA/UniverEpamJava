@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beers>
+    <beer id="b1" name="Zibert" type="Lager" al="true" manufacturer="ZobertBeer">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="5.5" opacity="50" filtered="true" kkal="330.5" tara="Glass" V="0.5"/>
+    </beer>
+    <beer id="b2" name="Obolon" type="Alive" al="true" manufacturer="OnolonKyiv">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="5.7" opacity="40" filtered="false" kkal="380.7" tara="Glass" V="0.5"/>
+    </beer>
+    <beer id="b3" name="Slavutich" type="Black" al="true" manufacturer="OnolonKyiv">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="6.7" opacity="20" filtered="false" kkal="355.7" tara="Glass" V="0.5"/>
+    </beer>
+    <beer id="b4" name="Bud" type="Light" al="true" manufacturer="ChernigivProm">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="4.7" opacity="60" filtered="true" kkal="325.3" tara="Glass" V="0.5"/>
+    </beer>
+    <beer id="b5" name="ChrnigivskeEKO" type="Light" al="false" manufacturer="ChernigivProm">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="0.0" opacity="65" filtered="true" kkal="280.1" tara="Glass" V="0.5"/>
+    </beer>
+    <beer id="b6" name="Arsenal5" type="Lager" al="true" manufacturer="ArsenalBeers">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="7.5" opacity="55" filtered="false" kkal="343.15" tara="Plastic" V="1"/>
+    </beer>
+    <beer id="b7" name="Arsenal10" type="Lager" al="true" manufacturer="ArsenalBeers">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="7.5" opacity="55" filtered="false" kkal="343.15" tara="Plastic" V="1.5"/>
+    </beer>
+    <beer id="b8" name="Arsenal25" type="Lager" al="true" manufacturer="ArsenalBeers">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="7.5" opacity="55" filtered="false" kkal="347.15" tara="Plastic" V="2.5"/>
+    </beer>
+    <beer id="b9" name="KingsBeer" type="Light" al="true" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="4.5" opacity="75" filtered="true" kkal="403.5" tara="Glass" V="0.33"/>
+    </beer>
+    <beer id="b10" name="BudNA" type="Light" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="0.0" opacity="75" filtered="true" kkal="417.44" tara="Glass" V="0.33"/>
+    </beer>
+    <beer id="b11er" name="BudNA11" type="Ogog" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="0.0" opacity="75" filtered="true" kkal="417.44" tara="Glass" V="0.33"/>
+    </beer>
+    <beer id="b12er" name="BudNA11" type="Light" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="-2.4" opacity="75" filtered="true" kkal="417.44" tara="Glass" V="0.33"/>
+    </beer>
+    <beer id="b13er" name="BudNA11" type="Light" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="122.4" opacity="75" filtered="true" kkal="417.44" tara="Glass" V="0.33"/>
+    </beer>
+    <beer id="b14er" name="BudNA11" type="Light" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="5.5" opacity="123" filtered="true" kkal="417.44" tara="Glass" V="0.33"/>
+    </beer>
+    <beer id="b15er" name="BudNA11" type="Light" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="5.5" opacity="-22" filtered="true" kkal="417.44" tara="Glass" V="0.33"/>
+    </beer>
+    <beer id="b16er" name="BudNA11" type="Light" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="4.5" opacity="52" filtered="true" kkal="417.44" tara="Glass" V="-2.0"/>
+    </beer>
+    <beer id="b17er" name="BudNA11" type="Light" al="false" manufacturer="KingsBeersCorp">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="4.5" opacity="52" filtered="true" kkal="417.44" tara="Glass" V="2000.0"/>
+    </beer>
+</beers>

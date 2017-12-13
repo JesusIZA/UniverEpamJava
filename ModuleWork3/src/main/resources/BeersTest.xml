@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beers>
+    <beer id="b1" name="Zibert" type="Lager" al="true" manufacturer="ZobertBeer">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="5.5" opacity="50" filtered="true" kkal="330.5" tara="Glass" V="0.5"/>
+    </beer>
+    <beer id="b2" name="Obolon" type="Alive" al="true" manufacturer="OnolonKyiv">
+        <ingredients>
+            <ingredient name="water"/>
+            <ingredient name="hop"/>
+            <ingredient name="sugar"/>
+            <ingredient name="malt"/>
+        </ingredients>
+        <chars klObor="5.7" opacity="40" filtered="false" kkal="380.7" tara="Glass" V="0.5"/>
+    </beer>
+</beers>
