@@ -25,7 +25,7 @@ public class Main {
     /**
      * Way to file will process and name one
      */
-    static final String FILE_NAME = "D:\\ForCreate(ua.jrc)\\Java\\Java9.1\\EPAM17\\M-Module-2\\src\\main\\resources\\text.txt";
+    static final String FILE_NAME = "M-Module-2/src/main/resources/text.txt";
     /**
      * List of words will look for in text
      */
