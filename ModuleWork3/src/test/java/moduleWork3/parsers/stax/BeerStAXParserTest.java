@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class BeerStAXParserTest {
-    public static final String WAY = "D:\\ForCreate(ua.jrc)\\Java\\Java9.1\\EPAM17\\M-Module-3\\src\\main\\resources\\BeersTest.xml";
+    public static final String WAY = "M-Module-3/src/main/resources/BeersTest.xml";
     BeerStAXParser bstp;
     List<Beer> beerList;
     @Before

@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class BeerDOMParserTest {
-    public static final String WAY = "D:\\ForCreate(ua.jrc)\\Java\\Java9.1\\EPAM17\\M-Module-3\\src\\main\\resources\\BeersTest.xml";
+    public static final String WAY = "M-Module-3/src/main/resources/BeersTest.xml";
     BeerDOMParser bdp;
     List<Beer> beerList;
     @Before

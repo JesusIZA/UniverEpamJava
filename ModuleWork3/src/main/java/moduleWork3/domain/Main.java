@@ -1,13 +1,21 @@
 package moduleWork3.domain;
 
+import com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaException;
 import moduleWork3.entitys.Beer;
 import moduleWork3.exceptions.OpacityException;
+import moduleWork3.exceptions.XMLDataException;
 import moduleWork3.parsers.BeerDOMParser;
 import moduleWork3.parsers.sax.BeerSAXParser;
 import moduleWork3.parsers.stax.BeerStAXParser;
 import org.apache.log4j.Logger;
+import org.xml.sax.SAXException;
 import utilsforall.lists.PrintLists;
 
+import javax.xml.XMLConstants;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -39,33 +47,58 @@ public class Main {
     /**
      * Way to xml file will process
      */
-    public static final String WAY = "D:\\ForCreate(ua.jrc)\\Java\\Java9.1\\EPAM17\\M-Module-3\\src\\main\\resources\\Beers.xml";
+    public static final String WAY = "M-Module-3/src/main/resources/Beers.xml";
+    /**
+     * Way to xsd file will process
+     */
+    public static final String XSD = "M-Module-3/src/main/resources/beers.xsd";
     /**
      * Logger
      */
     private static Logger logger = Logger.getLogger(Main.class);
 
-    public static void main(String[] args) {
-        //DOM parsing
-        System.out.println();
-        logger.info("Start DOM parsing!");
-        BeerDOMParser domParser = new BeerDOMParser();
-        List<Beer> beerList = domParser.parseBeersXML(WAY);
-        PrintLists.printListByRows(beerList);
-        logger.info("Finish DOM parsing!");
-        //SAZ parsing
-        System.out.println();
-        logger.info("Start SAX parsing!");
-        BeerSAXParser beerSAXParser = new BeerSAXParser();
-        beerList = beerSAXParser.parseBeers(WAY);
-        PrintLists.printListByRows(beerList);
-        logger.info("Finish SAX parsing!");
-        //StAX parsing
-        System.out.println();
-        logger.info("Start StAX parsing!");
-        BeerStAXParser beerStAXParser = new BeerStAXParser();
-        beerList = beerStAXParser.parseXML(WAY);
-        PrintLists.printListByRows(beerList);
-        logger.info("Finish StAX parsing!");
+    public static void main(String[] args) throws IOException, SAXException {
+
+        if(validateXMLByXSD(new File(WAY), new File(XSD))) {
+            //DOM parsing
+            System.out.println();
+            logger.info("Start DOM parsing!");
+            BeerDOMParser domParser = new BeerDOMParser();
+            List<Beer> beerList = domParser.parseBeersXML(WAY);
+            PrintLists.printListByRows(beerList);
+            logger.info("Finish DOM parsing!");
+            //SAZ parsing
+            System.out.println();
+            logger.info("Start SAX parsing!");
+            BeerSAXParser beerSAXParser = new BeerSAXParser();
+            beerList = beerSAXParser.parseBeers(WAY);
+            PrintLists.printListByRows(beerList);
+            logger.info("Finish SAX parsing!");
+            //StAX parsing
+            System.out.println();
+            logger.info("Start StAX parsing!");
+            BeerStAXParser beerStAXParser = new BeerStAXParser();
+            beerList = beerStAXParser.parseXML(WAY);
+            PrintLists.printListByRows(beerList);
+            logger.info("Finish StAX parsing!");
+        } else
+            try {
+                throw new XMLDataException("File XML: " + WAY + " is not validate");
+            } catch (Exception e) {
+                logger.error(e);
+            }
+    }
+
+    public static boolean validateXMLByXSD(File xml, File xsd) throws SAXException, IOException {
+        try {
+            SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
+                    .newSchema(xsd)
+                    .newValidator()
+                    .validate(new StreamSource(xml));
+        } catch (Exception e) {
+            logger.error(e);
+            return false;
+        }
+        return true;
     }
 }
