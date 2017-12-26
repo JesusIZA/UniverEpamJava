@@ -16,7 +16,7 @@ public class Domain {
          */
         AirlineService airlineService = new AirlineService();
         /**
-         * Create service for Airline
+         * Create service for Flight
          */
         FlightService flightService = new FlightService();
         /**

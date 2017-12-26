@@ -13,19 +13,19 @@ public abstract class Util {
     /**
      * DB driver
      */
-    private static final String DB_DRIVER = "org.h2.Driver";
+    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
     /**
      * DB URL
      */
-    private static final String DB_URL = "jdbc:h2:~/air";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/air";
     /**
      * DB user name
      */
-    private static final String DB_USERNAME = "jesus";
+    private static final String DB_USERNAME = "root";
     /**
      * DB password
      */
-    private static final String DB_PASSWORD = "";
+    private static final String DB_PASSWORD = "root";
 
     /**
      * Get connection to DB
@@ -34,7 +34,7 @@ public abstract class Util {
     public Connection getConnection(){
         Connection connection = null;
         try {
-            Class.forName(DB_DRIVER);
+            //Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             System.out.println("Connection OK!");
         } catch (Exception e) {
